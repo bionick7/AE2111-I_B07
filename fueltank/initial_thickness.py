@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from math import pi
 
 RADIUS = 2.2
-FUEL_MASS = 5000
+FUEL_MASS = 5313.170
 M_COMMS = 121.9
 
 ACCELERATION = 6.32455532 * 9.81
@@ -32,8 +32,8 @@ weights, thicknesses = get_weight_thickness(p, length)
 req_pressure = ACCELERATION * thicknesses * TI_DENSITY * 2 * (length / RADIUS - 1) + np.ones(100) * ACCELERATION * M_COMMS / (pi * RADIUS**2)
 
 w1, t1 = get_weight_thickness(hydrostatic_pressure + H2_PRESSURE, length)
-print(w1, t1*1000)
 p1 = 9.81 * (w1 + M_COMMS) / (pi * RADIUS**2)
+print(w1, t1*1000)
 print(p1)
 
 #plt.plot(p * 1e-5, weights)
