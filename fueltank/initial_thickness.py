@@ -40,5 +40,3 @@ print(p1)
 #plt.plot(p * 1e-5, req_pressure * np.reciprocal(p))
 #plt.show()
 
-
-

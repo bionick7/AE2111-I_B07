@@ -1,0 +1,61 @@
+{
+    "Spacecraft masses": {
+        "Dry": 1669.928,
+        "Wet": 2848.141,
+        "Launch": 8161.311,
+        "ADCS Tanks": 85.265,
+        "H2 Tanks": 168.911,
+        "Structure": 529.633,
+        "ADCS Fuel": 1178.213,
+        "H2 Fuel": 5313.170,
+        "___": "Next are TBD",
+        "Antenna": 10
+    },
+    "FuelTank": {
+        "Material": "Cryo Ti-6AL-4V",
+        "Radius": 2.2,
+        "Length": 6.3996,
+        "Mass": 148.05362383216084,
+        "Wall thickness": 0.00022389513711217296,
+        "Internal pressure": 101325,
+        "___": "Next are TBD",
+        "Connection Radius": 2,
+        "Antenna Distance": 0.1
+    },
+    "Launch": {
+        "Max Acceleration early launch": 3.3,
+        "Max Acceleration total": 6,
+        "Min Acceleration": -2.5,
+        "Lateral Acceleration": 2
+    },
+    "Materials": {
+        "Aluminium-2024-T4": {
+            "Modulus": 73.1e9,
+            "Yield strength": 324e6,
+            "Ultimate strength": 469e6,
+            "Density": 2780,
+            "Poisson": 0.33
+        },
+        "Aluminium-7075-T6": {
+            "Modulus": 71.7e9,
+            "Yield strength": 503e6,
+            "Ultimate strength": 572e6,
+            "Density": 2810,
+            "Poisson": 0.33
+        },
+        "Ti-6AI-4V": {
+            "Modulus": 113.8e9,
+            "Yield strength": 880e6,
+            "Ultimate strength": 950e6,
+            "Density": 4430,
+            "Poisson": 0.33
+        },
+        "Cryo Ti-6AI-4V": {
+            "Modulus": null,
+            "Yield strength": 1590e6,
+            "Ultimate strength": null,
+            "Density": 4430,
+            "Poisson": 0.33
+        }
+    }
+}
