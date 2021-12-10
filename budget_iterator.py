@@ -1,6 +1,6 @@
 import math
 from numpy import arange
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 from math import exp, pi
 
