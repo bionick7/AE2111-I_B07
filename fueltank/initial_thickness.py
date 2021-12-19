@@ -23,7 +23,7 @@ def calc_thickness(material, launch, masses, dimensions, internal_pressure):
 
     # This are the actual values
     p = hydrostatic_pressure + internal_pressure
-    t1 = p * radius / allowable_stress
+    t1 = p * ((length - 2 * radius) * 2 * radius + pi * radius ** 2) / (allowable_stress * (2 * (length - 2 * radius) + 2 * pi * radius))
     m1 = mass(material, radius, length, t1)
     comp_p = 9.81 * (m1 + masses["Communication"]) / (pi * radius**2)
     #print(p1)

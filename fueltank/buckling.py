@@ -23,7 +23,7 @@ def Euler_column(material, dimensions):
     E = material["Modulus"]
     # Calculate the material properties.
     I = pi * (radius ** 3) * dimensions["Wall thickness"]
-    A_encl = pi * radius * radius  # "Enclosed" area, aka the area of the vertical projection of the tank.
+    A_encl = pi * radius * 2 * thickness  # "Enclosed" area, aka the area of the vertical projection of the tank.
     sigma_crit = (pi * pi * E * I) / (A_encl * l_cylinder * l_cylinder)
     return sigma_crit
 
@@ -102,14 +102,12 @@ def Max_cylinder_wall_stress(launch, sc_masses, dimensions):
 
 
 def cone_buckling_bending(material, angle, t, r, pressure):
-    angle *= pi / 180
     E = material["Modulus"]
     poisson = material["Poisson"]
     ref = pressure / E * (r / t / cos(angle))**2
-    #print(ref)
-    DELTA_GAMMA = 0.2  # todo: as a function of ref: find from graph
+    DELTA_GAMMA = 0 if pressure == 0 else 0.2  # EXTREMLY discretised
     critical_force = (0.33 / sqrt(3 * (1 - poisson ** 2)) + DELTA_GAMMA) * 2 * pi * E * t*t * cos(angle)**2 + pressure * pi * r*r
-    critical_moment = (0.41 / sqrt(3 * (1 - poisson ** 2)) + DELTA_GAMMA) * pi * E * t*t * cos(angle)**2 + pressure * pi * r*r*r / 2
+    critical_moment = (0.41 / sqrt(3 * (1 - poisson ** 2)) + DELTA_GAMMA) * r * pi * E * t*t * cos(angle)**2 + pressure * pi * r*r*r / 2
     return critical_force, critical_moment
 
 
@@ -130,12 +128,12 @@ if __name__ == '__main__':
 
     max_stress = Max_cylinder_wall_stress(launch, sc_masses, dimensions)[0]
 
-    print(Euler_column(mat, dimensions) / -max_stress)
-    print(Shell_buckling(mat, dimensions) / -max_stress)
+    #print(Euler_column(mat, dimensions))
+    #print(Shell_buckling(mat, dimensions))
 
     delta_p = 70000
     load = launch["Max Acceleration total"] * (sc_masses["Communication"] + sc_masses["H2 Fuel"]) * 9.81
-    fm = cone_buckling_bending(mat, 34.805, dimensions["Wall thickness"], dimensions["Radius"], delta_p)
+    fm = cone_buckling_bending(mat, 34.805, dimensions["Wall thickness"], dimensions["Radius"], 0)
     print(fm[0] / load, fm[1] / M)
     print(load / fm[0] + M / fm[1], 1 / 1.5)
 

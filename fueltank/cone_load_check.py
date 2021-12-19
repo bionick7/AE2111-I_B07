@@ -11,6 +11,8 @@ g = 9.81
 
 DIVISIONS = 100
 
+ANGLE = math.radians(34.805)
+
 
 def calculate_thicknesses(material, Ftrans, moment_top, F_max_compress):
     Torque = 0.04
@@ -20,7 +22,7 @@ def calculate_thicknesses(material, Ftrans, moment_top, F_max_compress):
     t_list = np.zeros(DIVISIONS)
     x_list = np.zeros(DIVISIONS)
     for i, x in enumerate(np.linspace(0, 0.94426, DIVISIONS)):
-        r = R_top_outer - math.tan(math.radians(34.805)) * x
+        r = R_top_outer - math.tan(ANGLE) * x
         t = 0.01e-3
 
         stress_total = math.inf
@@ -29,7 +31,10 @@ def calculate_thicknesses(material, Ftrans, moment_top, F_max_compress):
                 break
             t *= 1.005
             sigma = (F_max_compress/(2 * math.pi * r) + moment_top/(math.pi * r**2))/t
-            stress_total = ((sigma * math.cos(math.radians(34.805)))**2 + 3 * (math.sin(math.radians(34.805)) * sigma)**2 + 3 * ((2 * Ftrans)/(math.pi * r * t) + Torque/(2 * math.pi * t * r**2))**2)**0.5
+            true_compression, shear_compression = sigma * math.cos(ANGLE), sigma * math.sin(math.radians(34.805))
+            shear = (2 * Ftrans)/(math.pi * r * t) + Torque/(2 * math.pi * t * r**2)
+
+            stress_total = math.sqrt(true_compression**2 + 3 * shear_compression**2 + 3 * shear**2)
 
         t_list[i] = t
         x_list[i] = x

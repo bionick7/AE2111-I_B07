@@ -17,12 +17,16 @@
     "FuelTank": {
         "Material": "Cryo Ti-6AL-4V",
         "Radius": 2.2,
-        "Length": 6.3996,
+        "Length": 6.3896,
         "Mass": 148.05362383216084,
         "Wall thickness": 0.00022389513711217296,
-        "Internal pressure": 103325,
+        "Mass_2": 193.59563178,
+        "Wall thickness_2": 0.0002927663599274565,
+        "Mass_3": 118.2737548710161,
+        "Wall thickness_3": 0.00017638792442327867,
+        "Internal pressure": 101325,
         "Fuel density": 70.850,
-        "__Fuel density comment__": "@ 70.017 K, 1 bar",
+        "__Fuel density comment__": "@ 20.369 K, 1 bar",
         "___": "Next are TBD",
         "Connection Radius": 2,
         "Antenna Distance": 0.1
@@ -41,9 +45,23 @@
             "Density": 2780,
             "Poisson": 0.33
         },
+        "Cryo Aluminium-2024-T4": {
+            "Modulus": 73.1e9,
+            "Yield strength": 421e6,
+            "Ultimate strength": 469e6,
+            "Density": 2780,
+            "Poisson": 0.33
+        },
         "Aluminium-7075-T6": {
             "Modulus": 71.7e9,
             "Yield strength": 503e6,
+            "Ultimate strength": 572e6,
+            "Density": 2810,
+            "Poisson": 0.33
+        },
+        "Cryo Aluminium-7075-T6": {
+            "Modulus": 71.7e9,
+            "Yield strength": 634e6,
             "Ultimate strength": 572e6,
             "Density": 2810,
             "Poisson": 0.33
@@ -60,6 +78,30 @@
             "Yield strength": 1590e6,
             "Ultimate strength": null,
             "Density": 4430,
+            "Poisson": 0.33
+        },
+        "Steel 15-5": {
+            "Modulus": 196e9,
+            "Yield strength": 1.29e9,
+            "Ultimate strength": 1.44e9,
+            "Density": 7800,
+            "Thermal expansion coefficient": 11e-6,
+            "Poisson": 0.33
+        },
+        "Steel 17-4": {
+            "Modulus": 197e9,
+            "Yield strength": 1.267e9,
+            "Ultimate strength": 1.379e9,
+            "Density": 7750,
+            "Thermal expansion coefficient": 11e-6,
+            "Poisson": 0.33
+        },
+        "Cryo Steel 17-4": {
+            "Modulus": 197e9,
+            "Yield strength": 1.675e9,
+            "Ultimate strength": 1.379e9,
+            "Density": 7750,
+            "Thermal expansion coefficient": 11e-6,
             "Poisson": 0.33
         }
     }
