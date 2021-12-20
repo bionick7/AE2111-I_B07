@@ -115,6 +115,6 @@ def design_connector(connector_material, launch, sc_masses, ft_mass, it1_materia
 
 
 if __name__ == '__main__':
-    #main()
-    S = .16**2 * .17653 * (3.4*2.81) ** .33333 * .01 ** .6667 * (40.18**2) / (0.017 **2) * 482.6/503
-    print(S)
+    main()
+    #S = .16**2 * .17653 * (3.4*2.81) ** .33333 * .01 ** .6667 * (40.18**2) / (0.017 **2) * 482.6/503
+    #print(S)
